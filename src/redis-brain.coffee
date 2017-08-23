@@ -38,7 +38,7 @@ module.exports = (robot) ->
   if process.env.REDIS_NO_CHECK?
     robot.logger.info "Turning off redis ready checks"
 
-  info = Url.parse  redisUrl, true
+  info = Url.parse(redisUrl)
   if info.hostname == ''
     client = Redis.createClient(info.pathname)
     prefix = info.query?.toString() or 'hubot'
